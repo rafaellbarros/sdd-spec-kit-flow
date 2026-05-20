@@ -1,26 +1,27 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Quote } from '../models/quote.model';
 
 export interface ZenQuotesResponse {
   q: string;
   a: string;
   h?: string;
 }
-
+export const QUOTES_API_URL = '/api/quotes';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class QuoteService {
-  private readonly apiUrl = 'https://zenquotes.io/api/random';
-
   constructor(private http: HttpClient) {}
 
-  getRandomQuote(): Observable<ZenQuotesResponse> {
-    return this.http.get<ZenQuotesResponse[]>(this.apiUrl).pipe(
-      map(responses => responses[0]),
-      catchError(() => of({ q: '', a: '' }))
+  getRandomQuote(): Observable<Quote> {
+    return this.http.get<ZenQuotesResponse[]>(QUOTES_API_URL).pipe(
+      map((arr) => {
+        const dto = arr[0];
+        return { text: dto.q, author: dto.a };
+      }),
     );
   }
 }

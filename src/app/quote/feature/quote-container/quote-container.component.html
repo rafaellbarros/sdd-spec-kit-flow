@@ -1,7 +1,10 @@
-<app-quote-card
-  [quoteText]="quoteText"
-  [author]="author"
-  [loading]="loading"
-  [errorMessage]="errorMessage"
-  (refresh)="handleRefresh()">
-</app-quote-card>
+<div class="container">
+  <app-quote-card
+    [quoteText]="quote()?.text ?? ''"
+    [author]="quote()?.author ?? ''"
+    [loading]="loading()"
+    [errorMessage]="errorMessage()"
+    (refresh)="handleRefresh()"
+  >
+  </app-quote-card>
+</div>

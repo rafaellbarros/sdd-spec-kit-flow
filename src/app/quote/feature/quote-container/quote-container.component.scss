@@ -1,0 +1,10 @@
+/* Container não precisa de estilos próprios - delega ao QuoteCard */
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  background: url('/background.jpg') center / cover no-repeat;
+}

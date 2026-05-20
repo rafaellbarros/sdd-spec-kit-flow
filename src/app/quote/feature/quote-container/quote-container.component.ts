@@ -1,48 +1,43 @@
-import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Subscription } from 'rxjs';
+import { Component, inject, signal } from '@angular/core';
 
+import { Quote } from '../../data/models/quote.model';
+import { QuoteService } from '../../data/services/quote.service';
 import { QuoteCardComponent } from '../../ui/quote-card/quote-card.component';
-import { QuoteService, ZenQuotesResponse } from '../../data/services/quote.service';
+
+export const QUOTE_LOAD_ERROR_MESSAGE = 'Failed to load quote. Please try again.';
 
 @Component({
   selector: 'app-quote-container',
   standalone: true,
   imports: [CommonModule, QuoteCardComponent],
   templateUrl: './quote-container.component.html',
-  styleUrl: './quote-container.component.css'
+  styleUrl: './quote-container.component.scss',
 })
 export class QuoteContainerComponent {
   private readonly quoteService = inject(QuoteService);
 
-  // Signals para estado
-  loading = false;
-  errorMessage = '';
-  quoteText = '';
-  author = '';
-
-  private subscription?: Subscription;
+  protected readonly quote = signal<Quote | null>(null);
+  protected readonly loading = signal(true);
+  protected readonly errorMessage = signal('');
 
   ngOnInit(): void {
     this.loadQuote();
   }
 
   loadQuote(): void {
-    this.loading = true;
-    this.errorMessage = '';
+    this.loading.set(true);
+    this.errorMessage.set('');
 
-    this.subscription?.unsubscribe();
-
-    this.subscription = this.quoteService.getRandomQuote().subscribe({
-      next: (response: ZenQuotesResponse) => {
-        this.quoteText = response.q;
-        this.author = response.a;
-        this.loading = false;
+    this.quoteService.getRandomQuote().subscribe({
+      next: (response) => {
+        this.quote.set(response);
+        this.loading.set(false);
       },
       error: () => {
-        this.errorMessage = 'Erro ao carregar citação. Tente novamente.';
-        this.loading = false;
-      }
+        this.errorMessage.set(QUOTE_LOAD_ERROR_MESSAGE);
+        this.loading.set(false);
+      },
     });
   }
 
