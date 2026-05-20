@@ -1,6 +1,6 @@
 <div class="quote-card">
   @if (loading()) {
-    <div class="quote-loading">Carregando...</div>
+    <div class="quote-loading">Loading...</div>
   } @else if (errorMessage()) {
     <div class="quote-error">{{ errorMessage() }}</div>
   } @else {
@@ -10,15 +10,9 @@
     </div>
   }
 
-  <button 
-    type="button"
-    class="quote-refresh-btn"
-    (click)="refresh.emit()"
-    [disabled]="loading()">
+  <button type="button" class="quote-refresh-btn" (click)="refresh.emit()" [disabled]="loading()">
     Nova Citação
   </button>
 
-  <footer class="quote-attribution">
-    Inspirational quotes provided by ZenQuotes API
-  </footer>
+  <footer class="quote-attribution">Inspirational quotes provided by ZenQuotes API</footer>
 </div>
