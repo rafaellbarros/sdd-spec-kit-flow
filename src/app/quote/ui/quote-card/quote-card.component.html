@@ -1,0 +1,24 @@
+<div class="quote-card">
+  @if (loading()) {
+    <div class="quote-loading">Carregando...</div>
+  } @else if (errorMessage()) {
+    <div class="quote-error">{{ errorMessage() }}</div>
+  } @else {
+    <div class="quote-content">
+      <blockquote class="quote-text">{{ quoteText() }}</blockquote>
+      <cite class="quote-author">— {{ author() }}</cite>
+    </div>
+  }
+
+  <button 
+    type="button"
+    class="quote-refresh-btn"
+    (click)="refresh.emit()"
+    [disabled]="loading()">
+    Nova Citação
+  </button>
+
+  <footer class="quote-attribution">
+    Inspirational quotes provided by ZenQuotes API
+  </footer>
+</div>
