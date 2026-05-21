@@ -1,0 +1,23 @@
+<div class="container">
+  @if (loading()) {
+    <p class="loading" role="status" aria-live="polite">Loading quote...</p>
+  } @else if (error()) {
+    <div class="error" role="alert">
+      <p>{{ error() }}</p>
+      <button type="button" class="refresh-btn" (click)="refresh()" [disabled]="loading()">
+        Try Again
+      </button>
+    </div>
+  } @else if (quote()) {
+    <app-quote-card [text]="quote()!.text" [author]="quote()!.author" (refresh)="refresh()" />
+    <button
+      type="button"
+      class="refresh-btn"
+      (click)="refresh()"
+      [disabled]="loading()"
+      aria-label="Get another quote"
+    >
+      Refresh
+    </button>
+  }
+</div>

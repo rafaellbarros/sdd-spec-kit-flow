@@ -26,9 +26,9 @@
 
 **Purpose**: Project initialization and dev proxy configuration
 
-- [ ] T001 Configure dev proxy in `proxy.conf.json` to route `/api/quotes` → `https://zenquotes.io/api`
-- [ ] T002 [P] Add `proxy.conf.json` to serve options in `angular.json`
-- [ ] T003 [P] Add Outfit `font-family` to `src/styles.scss` on `body` selector
+- [x] T001 Configure dev proxy in `proxy.conf.json` to route `/api/quotes` → `https://zenquotes.io/api`
+- [x] T002 [P] Add `proxy.conf.json` to serve options in `angular.json`
+- [x] T003 [P] Add Outfit `font-family` to `src/styles.scss` on `body` selector
 
 ---
 
@@ -38,13 +38,13 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T004 Import `provideHttpClient()` in `src/app/app.config.ts`
-- [ ] T005 [P] Create `Quote` model and `ZenQuotesDTO` interface in `src/app/quote-card/data/quote.model.ts`
-- [ ] T006 Create `QuoteService` with `fetchRandomQuote(): Observable<Quote>` in `src/app/quote-card/data/quote.service.ts`
-- [ ] T007 Implement DTO-to-model mapping (`mapDto`) inside `QuoteService`
-- [ ] T008 Set up lazy-loaded route for `/home` and default redirect in `src/app/app.routes.ts`
-- [ ] T009 Create `QuoteContainer` smart component shell (ts/html/scss) in `src/app/quote-card/feature/`
-- [ ] T010 [P] Create `QuoteCard` dumb component shell (ts/html/scss) in `src/app/quote-card/ui/`
+- [x] T004 Import `provideHttpClient()` in `src/app/app.config.ts`
+- [x] T005 [P] Create `Quote` model and `ZenQuotesDTO` interface in `src/app/quote-card/data/quote.model.ts`
+- [x] T006 Create `QuoteService` with `fetchRandomQuote(): Observable<Quote>` in `src/app/quote-card/data/quote.service.ts`
+- [x] T007 Implement DTO-to-model mapping (`mapDto`) inside `QuoteService`
+- [x] T008 Set up lazy-loaded route for `/home` and default redirect in `src/app/app.routes.ts`
+- [x] T009 Create `QuoteContainer` smart component shell (ts/html/scss) in `src/app/quote-card/feature/`
+- [x] T010 [P] Create `QuoteCard` dumb component shell (ts/html/scss) in `src/app/quote-card/ui/`
 
 **Checkpoint**: Foundation ready — user story implementation can now begin in parallel
 
@@ -60,20 +60,20 @@
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T011 [P] [US1] Test `QuoteService.fetchRandomQuote()` makes correct HTTP GET to `/api/quotes/random` and maps DTO to `Quote` in `src/app/quote-card/data/quote.service.spec.ts`
-- [ ] T012 [US1] Test `QuoteContainer` shows loading state on init and transitions to success with quote in `src/app/quote-card/feature/quote-container.component.spec.ts`
+- [x] T011 [P] [US1] Test `QuoteService.fetchRandomQuote()` makes correct HTTP GET to `/api/quotes/random` and maps DTO to `Quote` in `src/app/quote-card/data/quote.service.spec.ts`
+- [x] T012 [US1] Test `QuoteContainer` shows loading state on init and transitions to success with quote in `src/app/quote-card/feature/quote-container.component.spec.ts`
 
 ### Implementation for User Story 1
 
-- [ ] T013 [US1] Implement `QuoteService.fetchRandomQuote()` — HTTP GET + `mapDto` in `src/app/quote-card/data/quote.service.ts`
-- [ ] T014 [US1] Add Signals for `loading`, `quote`, `error` state in `QuoteContainer` in `src/app/quote-card/feature/quote-container.component.ts`
-- [ ] T015 [US1] Wire `ngOnInit` to call `QuoteService` and update signals (loading → success/error) in `src/app/quote-card/feature/quote-container.component.ts`
-- [ ] T016 [US1] Implement loading state template (textual indicator) in `src/app/quote-card/feature/quote-container.component.html`
-- [ ] T017 [US1] Implement `QuoteCard` dumb component with `input()` for quote text/author and `OnPush` in `src/app/quote-card/ui/quote-card.component.ts`
-- [ ] T018 [US1] Create `QuoteCard` template displaying quote text and author in `src/app/quote-card/ui/quote-card.component.html`
-- [ ] T019 [US1] Style `QuoteCard` per prototype (hierarchy, spacing) in `src/app/quote-card/ui/quote-card.component.scss`
-- [ ] T020 [US1] Embed `QuoteCard` in `QuoteContainer` success state template in `src/app/quote-card/feature/quote-container.component.html`
-- [ ] T021 [US1] Apply background image (`/background.jpg`) and centered layout in `src/app/quote-card/feature/quote-container.component.scss`
+- [x] T013 [US1] Implement `QuoteService.fetchRandomQuote()` — HTTP GET + `mapDto` in `src/app/quote-card/data/quote.service.ts`
+- [x] T014 [US1] Add Signals for `loading`, `quote`, `error` state in `QuoteContainer` in `src/app/quote-card/feature/quote-container.component.ts`
+- [x] T015 [US1] Wire `ngOnInit` to call `QuoteService` and update signals (loading → success/error) in `src/app/quote-card/feature/quote-container.component.ts`
+- [x] T016 [US1] Implement loading state template (textual indicator) in `src/app/quote-card/feature/quote-container.component.html`
+- [x] T017 [US1] Implement `QuoteCard` dumb component with `input()` for quote text/author and `OnPush` in `src/app/quote-card/ui/quote-card.component.ts`
+- [x] T018 [US1] Create `QuoteCard` template displaying quote text and author in `src/app/quote-card/ui/quote-card.component.html`
+- [x] T019 [US1] Style `QuoteCard` per prototype (hierarchy, spacing) in `src/app/quote-card/ui/quote-card.component.scss`
+- [x] T020 [US1] Embed `QuoteCard` in `QuoteContainer` success state template in `src/app/quote-card/feature/quote-container.component.html`
+- [x] T021 [US1] Apply background image (`/background.jpg`) and centered layout in `src/app/quote-card/feature/quote-container.component.scss`
 
 **Checkpoint**: At this point, User Story 1 should be fully functional — open app, see loading, then see quote + author
 
@@ -87,14 +87,11 @@
 
 ### Tests for User Story 2 (REQUIRED) ⚠️
 
-- [ ] T022 [US2] Test `QuoteContainer` refresh triggers new fetch and updates quote in `src/app/quote-card/feature/quote-container.component.spec.ts`
-- [ ] T023 [US2] Test refresh button is disabled during loading in `src/app/quote-card/feature/quote-container.component.spec.ts`
-
-### Implementation for User Story 2
-
-- [ ] T024 [US2] Add `refresh()` method to `QuoteContainer` that re-fetches and resets loading in `src/app/quote-card/feature/quote-container.component.ts`
-- [ ] T025 [US2] Add "Refresh" button to template, bound to `refresh()`, disabled when `loading()` is true in `src/app/quote-card/feature/quote-container.component.html`
-- [ ] T026 [US2] Add `refresh` output event to `QuoteCard` (or button styling) in `src/app/quote-card/ui/quote-card.component.ts`
+- [x] T022 [US2] Test `QuoteContainer` refresh triggers new fetch and updates quote in `src/app/quote-card/feature/quote-container.component.spec.ts`
+- [x] T023 [US2] Test refresh button is disabled during loading in `src/app/quote-card/feature/quote-container.component.spec.ts`
+- [x] T024 [US2] Add `refresh()` method to `QuoteContainer` that re-fetches and resets loading in `src/app/quote-card/feature/quote-container.component.ts`
+- [x] T025 [US2] Add "Refresh" button to template, bound to `refresh()`, disabled when `loading()` is true in `src/app/quote-card/feature/quote-container.component.html`
+- [x] T026 [US2] Add `refresh` output event to `QuoteCard` (or button styling) in `src/app/quote-card/ui/quote-card.component.ts`
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -108,15 +105,12 @@
 
 ### Tests for User Story 3 (REQUIRED) ⚠️
 
-- [ ] T027 [P] [US3] Test `QuoteService` propagates HTTP errors as observable errors in `src/app/quote-card/data/quote.service.spec.ts`
-- [ ] T028 [US3] Test `QuoteContainer` shows error message on fetch failure and allows retry in `src/app/quote-card/feature/quote-container.component.spec.ts`
-- [ ] T029 [US3] Test that loading is set to false after both success and error (no infinite loading) in `src/app/quote-card/feature/quote-container.component.spec.ts`
-
-### Implementation for User Story 3
-
-- [ ] T030 [US3] Add error signal and error handling in `QuoteContainer` `refresh()` / `ngOnInit` in `src/app/quote-card/feature/quote-container.component.ts`
-- [ ] T031 [US3] Add error message template (clear, actionable text) in `src/app/quote-card/feature/quote-container.component.html`
-- [ ] T032 [US3] Style error state (contrast, readable) in `src/app/quote-card/feature/quote-container.component.scss`
+- [x] T027 [P] [US3] Test `QuoteService` propagates HTTP errors as observable errors in `src/app/quote-card/data/quote.service.spec.ts`
+- [x] T028 [US3] Test `QuoteContainer` shows error message on fetch failure and allows retry in `src/app/quote-card/feature/quote-container.component.spec.ts`
+- [x] T029 [US3] Test that loading is set to false after both success and error (no infinite loading) in `src/app/quote-card/feature/quote-container.component.spec.ts`
+- [x] T030 [US3] Add error signal and error handling in `QuoteContainer` `refresh()` / `ngOnInit` in `src/app/quote-card/feature/quote-container.component.ts`
+- [x] T031 [US3] Add error message template (clear, actionable text) in `src/app/quote-card/feature/quote-container.component.html`
+- [x] T032 [US3] Style error state (contrast, readable) in `src/app/quote-card/feature/quote-container.component.scss`
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -126,11 +120,11 @@
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T033 [P] Verify keyboard navigation: refresh button focusable and activatable via Enter/Space
-- [ ] T034 [P] Verify loading/error states have sufficient color contrast per WCAG AA
-- [ ] T035 Run `ng test` and confirm all tests pass
-- [ ] T036 Run `ng build` and confirm production build succeeds
-- [ ] T037 Run `ng serve` and manually validate against prototype (`specs/prototypes/quote-card.png`)
+- [x] T033 [P] Verify keyboard navigation: refresh button focusable and activatable via Enter/Space
+- [x] T034 [P] Verify loading/error states have sufficient color contrast per WCAG AA
+- [x] T035 Run `ng test` and confirm all tests pass
+- [x] T036 Run `ng build` and confirm production build succeeds
+- [x] T037 Run `ng serve` and manually validate against prototype (`specs/prototypes/quote-card.png`)
 
 ---
 
